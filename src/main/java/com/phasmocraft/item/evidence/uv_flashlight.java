@@ -1,4 +1,4 @@
-package com.phasmocraft.items.evidence;
+package com.phasmocraft.item.evidence;
 
 import net.minecraft.item.Item;
 

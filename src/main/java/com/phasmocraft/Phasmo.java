@@ -1,35 +1,33 @@
 package com.phasmocraft;
 
-import com.phasmocraft.items.evidence.emf_meter;
-import com.phasmocraft.items.evidence.uv_flashlight;
+import com.mojang.brigadier.context.CommandContext;
+import com.phasmocraft.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.server.command.CommandManager;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.mojang.brigadier.arguments.IntegerArgumentType.*;
+import static com.phasmocraft.item.ModItems.*;
+import static net.minecraft.server.command.CommandManager.*;
+
 public class Phasmo implements ModInitializer {
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
-    public static final Logger LOGGER = LoggerFactory.getLogger("phasmocraft");
-	public static final emf_meter EMF_METER =
-			Registry.register(Registries.ITEM,new Identifier("phasmocraft","emf_meter"),
-			new emf_meter(new FabricItemSettings().maxCount(1)));
-	public static final uv_flashlight UV_FLASHLIGHT =
-			Registry.register(Registries.ITEM,new Identifier("phasmocraft","uv_flashlight"),
-			new uv_flashlight(new FabricItemSettings().maxCount(1)));
+	public static final String MODID = "phasmocraft";
+
+    public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
+
 	private static final ItemGroup PHASMO_GROUP =
-			FabricItemGroup.builder(new Identifier("phasmocraft","group"))
-			.icon(()->new ItemStack(EMF_METER))
-			.build();
+			FabricItemGroup.builder(new Identifier(MODID,"group"))
+					.icon(()->new ItemStack(EMF_METER))
+					.build();
 
 	@Override
 	public void onInitialize() {
