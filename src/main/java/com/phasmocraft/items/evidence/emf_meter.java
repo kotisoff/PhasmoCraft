@@ -9,13 +9,12 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class emf_meter extends Item {
-    public emf_meter(Settings settings){
+    public emf_meter(Settings settings) {
         super(settings);
     }
-
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand){
-        playerEntity.playSound(SoundEvents.BLOCK_ANVIL_PLACE,1.0F,1.0F);
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
+        playerEntity.playSound(SoundEvents.BLOCK_ANVIL_PLACE, 10.0F, 1.0F);
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
     }
 }
