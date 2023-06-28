@@ -16,10 +16,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.phasmocraft.ExampleMod"
+			"com.phasmocraft.Phasmo"
 		],
 		"client": [
-			"com.phasmocraft.ExampleModClient"
+			"com.phasmocraft.PhasmoClient"
 		]
 	},
 	"mixins": [
