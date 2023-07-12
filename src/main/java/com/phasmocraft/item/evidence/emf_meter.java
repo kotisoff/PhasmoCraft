@@ -13,18 +13,28 @@ public class emf_meter extends Item {
     public emf_meter(Settings settings) {
         super(settings);
     }
-    public float EMF = 4;
+    public float EMF = 0.0f;
 
     public void setEMF(float emf){
         this.EMF = emf;
     }
 
+    public int doubleuse = 0;
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
-        playerEntity.playSound(SoundEvents.BLOCK_ANVIL_PLACE, 1.0F, 1.0F);
-        setEMF(EMF+0.05f);
-        if(EMF>0.6f){EMF=0.0f;}
-        playerEntity.sendMessage(Text.literal("EMF: "+EMF));
+        if(doubleuse==0) {
+            playerEntity.playSound(SoundEvents.BLOCK_LEVER_CLICK, 1.0F, 1.0F);
+            if(EMF==0.0f){
+                setEMF(0.1f);
+                playerEntity.sendMessage(Text.literal("EMF On"));
+            }else{
+                setEMF(0.0f);
+                playerEntity.sendMessage(Text.literal("EMF Off"));
+            }
+            doubleuse = 1;
+        }else{
+            doubleuse = 0;
+        }
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
     }
 }

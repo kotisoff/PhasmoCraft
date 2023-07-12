@@ -1,23 +1,15 @@
 package com.phasmocraft;
 
-import com.mojang.brigadier.context.CommandContext;
-import com.phasmocraft.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.command.CommandManager;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import static com.mojang.brigadier.arguments.IntegerArgumentType.*;
 import static com.phasmocraft.item.ModItems.*;
-import static net.minecraft.server.command.CommandManager.*;
 
 public class Phasmo implements ModInitializer {
 	public static final String MODID = "phasmocraft";
