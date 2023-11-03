@@ -176,31 +176,31 @@
 	"overrides": [
 		{
 			"predicate": {
-				"phasmocraft:emf_data": 0.1
+				"phasmocraft:emf": 0.2
 			},
 			"model": "phasmocraft:item/emf_meter_states/emf_1"
 		},
 		{
 			"predicate":  {
-				"phasmocraft:emf_data": 0.2
+				"phasmocraft:emf": 0.4
 			},
 			"model": "phasmocraft:item/emf_meter_states/emf_2"
 		},
 		{
 			"predicate":  {
-				"phasmocraft:emf_data": 0.3
+				"phasmocraft:emf": 0.6
 			},
 			"model": "phasmocraft:item/emf_meter_states/emf_3"
 		},
 		{
 			"predicate":  {
-				"phasmocraft:emf_data": 0.4
+				"phasmocraft:emf": 0.8
 			},
 			"model": "phasmocraft:item/emf_meter_states/emf_4"
 		},
 		{
 			"predicate":  {
-				"phasmocraft:emf_data": 0.5
+				"phasmocraft:emf": 1.0
 			},
 			"model": "phasmocraft:item/emf_meter_states/emf_5"
 		}

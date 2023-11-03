@@ -8,7 +8,13 @@ import net.minecraft.util.Identifier;
 public class PhasmoClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		ModelPredicateProviderRegistry.register(ModItems.EMF_METER, new Identifier(Phasmo.MODID, "emf_data"),
-				(stack, world, entity, seed) -> ModItems.EMF_METER.EMF);
+		ModelPredicateProviderRegistry.register(ModItems.EMF_METER, new Identifier(Phasmo.MODID, "emf"),
+				(stack, world, entity, seed) -> {
+			if(stack.hasNbt()){
+				assert stack.getNbt() != null;
+				return stack.getNbt().getFloat("phasmocraft.emf");
+			}
+			return 0f;
+		});
 	}
 }
