@@ -1,5 +1,10 @@
 {
-  "itemGroup.phasmocraft.group": "Phasmocraft",
+  "block.phasmocraft.salt": "Соль",
+  "block.phasmocraft.writing_book": "Блокнот",
   "item.phasmocraft.emf_meter": "Детектор ЭМП",
-  "item.phasmocraft.uv_flashlight": "Ультрафиолетовый фонарик"
+  "item.phasmocraft.ghost_event": "Призрачный ивент",
+  "item.phasmocraft.ghost_interact": "Призрачное взаимодействие",
+  "item.phasmocraft.uv_flashlight": "Ультрафиолетовый фонарик",
+  "itemGroup.phasmocraft.evidence": "Phasmocraft Улики",
+  "itemGroup.phasmocraft.ghost": "Phasmocraft Призрак"
 }

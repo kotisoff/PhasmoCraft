@@ -1,6 +1,6 @@
 package com.phasmocraft;
 
-import com.phasmocraft.item.ModItems;
+import com.phasmocraft.registry.ItemsEvidence;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.util.Identifier;
@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 public class PhasmoClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		ModelPredicateProviderRegistry.register(ModItems.EMF_METER, new Identifier(Phasmo.MODID, "emf"),
+		ModelPredicateProviderRegistry.register(ItemsEvidence.EMF_METER, new Identifier(Phasmo.MODID, "emf"),
 				(stack, world, entity, seed) -> {
 			if(stack.hasNbt()){
 				assert stack.getNbt() != null;

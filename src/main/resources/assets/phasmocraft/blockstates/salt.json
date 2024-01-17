@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "steppedon=false": {
+      "model": "phasmocraft:block/salt0"
+    },
+    "steppedon=true": {
+      "model": "phasmocraft:block/salt1"
+    }
+  }
+}
