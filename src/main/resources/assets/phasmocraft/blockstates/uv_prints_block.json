@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "shown=false": {
+      "model": "phasmocraft:block/uv_prints_block"
+    },
+    "shown=true": {
+      "model": "phasmocraft:block/uv_prints_block_shown"
+    }
+  }
+}

@@ -48,14 +48,11 @@ public class salt extends Block {
         return VoxelShapes.cuboid(0.2f, 0f, 0.2f, 0.8f, 0.1f, 0.8f);
 //        return super.getOutlineShape(state, world, pos, context);
     }
-
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return VoxelShapes.cuboid(0f,0f,0f,1f,0.05f,1f);
 //        return super.getCollisionShape(state, world, pos, context);
     }
-
-
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {

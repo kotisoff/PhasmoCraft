@@ -24,17 +24,10 @@ public class emf_meter extends Item {
     private static final String nbtEmf = "phasmocraft.emf";
     public emf_meter(Settings settings) {
         super(settings);
-    }
-
-    @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if(world.isClient()) return;
-        NbtCompound nbt = stack.getNbt();
-        if(nbt!=null) return;
-        nbt = new NbtCompound();
-        nbt.putFloat(nbtEmf, 0);
+        NbtCompound nbt = new NbtCompound();
         nbt.putBoolean(nbtEnabled, false);
-        stack.setNbt(nbt);
+        nbt.putFloat(nbtEmf, 0);
+        getDefaultStack().setNbt(nbt);
     }
 
     public void setEMF(PlayerEntity player, Hand hand, float emf) {
