@@ -40,13 +40,16 @@ public class uv_flashlight extends Item {
         BlockPos pos = hit.getBlockPos();
         player.sendMessage(Text.literal("Looking at pos: "+pos.toString()));
         BlockState state = world.getBlockState(pos);
-        player.sendMessage(Text.literal("Found UV Block: "+state.isOf(UV_PRINTS_BLOCK)));
-        if(state.isOf(UV_PRINTS_BLOCK)) ((uvPrintsBlock) state.getBlock()).setShown(world, pos, true);
+        if(state.isOf(UV_PRINTS_BLOCK)){
+            player.sendMessage(Text.literal("Found UV Block."));
+            uvPrintsBlock.setShown(world, pos, state,true);
+        }
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         setDefaultNbt(stack, world);
+        if(selected) raycastUV(world, (PlayerEntity) entity);
     }
 
     @Override
@@ -58,7 +61,6 @@ public class uv_flashlight extends Item {
         assert nbt != null;
         nbt.putBoolean(nbtEnabled, !nbt.getBoolean(nbtEnabled));
         stack.setNbt(nbt);
-        raycastUV(world, user);
         return TypedActionResult.success(user.getStackInHand(hand));
     }
 

@@ -26,16 +26,12 @@ public class uvPrintsBlock extends Block {
         super.appendProperties(builder);
     }
 
-    public void setShown(World world, BlockPos pos, boolean bool){
-        BlockState state = world.getBlockState(pos);
-        state.with(SHOWN, bool);
-        world.setBlockState(pos, state);
+    public static void setShown(World world, BlockPos pos, BlockState state, boolean bool){
+        world.setBlockState(pos, state.with(SHOWN, bool));
     }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if(world.isClient()) return ActionResult.SUCCESS;
-        world.setBlockState(pos, state.cycle(SHOWN));
-        return ActionResult.SUCCESS;
+        return super.onUse(state, world, pos, player, hand, hit);
     }
 }
