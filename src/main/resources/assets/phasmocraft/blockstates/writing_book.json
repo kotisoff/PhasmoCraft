@@ -1,3 +1,7 @@
 {
-  "parent": "block/lectern"
+  "variants": {
+    "": {
+      "model": "phasmocraft:block/writing_book"
+    }
+  }
 }

@@ -1,6 +1,6 @@
 package com.phasmocraft.item.evidence;
 
-import com.phasmocraft.block.test.uvPrintsBlock;
+import com.phasmocraft.block.evidence.util.uvChargeableBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,12 +12,9 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
-
-import static com.phasmocraft.registry.BlocksEvidence.UV_PRINTS_BLOCK;
 
 public class uv_flashlight extends Item {
     private static final String nbtEnabled = "phasmocraft.enabled";
@@ -35,22 +32,24 @@ public class uv_flashlight extends Item {
         stack.setNbt(nbt);
     }
 
-    private void raycastUV(World world, PlayerEntity player){
+    private void raycastUV(World world, PlayerEntity player, ItemStack stack){
+        if(!isEnabled(stack)) return;
         BlockHitResult hit = raycast(world, player, RaycastContext.FluidHandling.NONE);
         BlockPos pos = hit.getBlockPos();
         BlockState state = world.getBlockState(pos);
-        if(state.isOf(UV_PRINTS_BLOCK)){
-            uvPrintsBlock.setShown(world, pos, state,true);
+        if(state.contains(uvChargeableBlock.UVSHOWN)){
+            uvChargeableBlock Block = (uvChargeableBlock) state.getBlock();
+            if(Block.canBeShown(world, pos, state)) uvChargeableBlock.setShown(world, pos, state, true);
         }
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         setDefaultNbt(stack, world);
-        if(selected && isEnabled(stack)) raycastUV(world, (PlayerEntity) entity);
+        if(selected) raycastUV(world, (PlayerEntity) entity, stack);
     }
 
-    public static boolean isEnabled(ItemStack stack){
+    public boolean isEnabled(ItemStack stack){
         NbtCompound nbt = stack.getNbt();
         assert nbt != null;
         return nbt.getBoolean(nbtEnabled);

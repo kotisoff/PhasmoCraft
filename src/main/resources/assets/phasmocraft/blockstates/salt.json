@@ -1,10 +1,13 @@
 {
   "variants": {
     "steppedon=false": {
-      "model": "phasmocraft:block/salt0"
+      "model": "phasmocraft:block/salt"
     },
-    "steppedon=true": {
-      "model": "phasmocraft:block/salt1"
+    "uv_shown=false,steppedon=true": {
+      "model": "phasmocraft:block/salt_step"
+    },
+    "uv_shown=true,steppedon=true": {
+      "model": "phasmocraft:block/salt_step_uv"
     }
   }
 }

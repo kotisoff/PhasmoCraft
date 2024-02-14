@@ -1,9 +1,9 @@
 {
   "variants": {
-    "shown=false": {
+    "uv_shown=false": {
       "model": "phasmocraft:block/uv_prints_block"
     },
-    "shown=true": {
+    "uv_shown=true": {
       "model": "phasmocraft:block/uv_prints_block_shown"
     }
   }

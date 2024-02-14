@@ -1,9 +1,9 @@
 package com.phasmocraft.registry;
 
-import com.phasmocraft.block.evidence.*;
-import com.phasmocraft.block.test.*;
+import com.phasmocraft.block.evidence.salt;
+import com.phasmocraft.block.evidence.writing_book;
+import com.phasmocraft.block.test.uvPrintsBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -11,12 +11,13 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import static com.phasmocraft.Phasmo.*;
-import static com.phasmocraft.registry.ModRegistryUtil.*;
+import static com.phasmocraft.Phasmo.GROUP_EVIDENCE;
+import static com.phasmocraft.Phasmo.MODID;
+import static com.phasmocraft.registry.ModRegistryUtil.addItemsToGroup;
 
 public class BlocksEvidence {
 
-    public static final salt SALT = new salt(AbstractBlock.Settings.create());
+    public static final salt SALT = new salt(FabricBlockSettings.create());
     public static final Item SALT_ITEM = createBlockItem(SALT);
 
     public static final writing_book WRITING_BOOK = new writing_book(FabricBlockSettings.create());

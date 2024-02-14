@@ -1,0 +1,7 @@
+{
+	"parent": "phasmocraft:block/salt_step",
+	"textures": {
+		"0": "phasmocraft:block/salt_uv",
+		"particle": "phasmocraft:block/salt_uv"
+	}
+}
