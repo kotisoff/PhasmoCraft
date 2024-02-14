@@ -16,14 +16,16 @@ public class flashlight extends Item {
 
     public flashlight(Item.Settings settings){
         super(settings);
-        NbtCompound nbt = new NbtCompound();
-        nbt.putBoolean(nbtEnabled, false);
-        postProcessNbt(nbt);
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        super.inventoryTick(stack, world, entity, slot, selected);
+        if(world.isClient()) return;
+        NbtCompound nbt = stack.getNbt();
+        if(nbt != null) return;
+        nbt = new NbtCompound();
+        nbt.putBoolean(nbtEnabled, false);
+        stack.setNbt(nbt);
     }
 
     @Override
@@ -33,9 +35,16 @@ public class flashlight extends Item {
         ItemStack stack = user.getStackInHand(hand);
         NbtCompound nbt = stack.getNbt();
         assert nbt != null;
-        user.sendMessage(Text.literal(nbt.toString()));
         nbt.putBoolean(nbtEnabled, !nbt.getBoolean(nbtEnabled));
+        user.sendMessage(Text.literal(nbt.toString()));
         stack.setNbt(nbt);
         return TypedActionResult.success(user.getStackInHand(hand));
+    }
+
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        NbtCompound nbt = stack.getNbt();
+        if(nbt == null) return false;
+        return nbt.getBoolean(nbtEnabled);
     }
 }

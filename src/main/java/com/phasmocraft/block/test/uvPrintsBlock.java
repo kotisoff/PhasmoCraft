@@ -17,7 +17,7 @@ public class uvPrintsBlock extends Block {
 
     public uvPrintsBlock(FabricBlockSettings settings){
         super(settings);
-        getDefaultState().with(SHOWN, false);
+        setDefaultState(getDefaultState().with(SHOWN, false));
     }
 
     @Override
@@ -26,7 +26,11 @@ public class uvPrintsBlock extends Block {
         super.appendProperties(builder);
     }
 
-    public void toggleShow(Block block){}
+    public void setShown(World world, BlockPos pos, boolean bool){
+        BlockState state = world.getBlockState(pos);
+        state.with(SHOWN, bool);
+        world.setBlockState(pos, state);
+    }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
