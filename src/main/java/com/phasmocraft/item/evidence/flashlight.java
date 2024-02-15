@@ -1,14 +1,22 @@
 package com.phasmocraft.item.evidence;
 
+import com.phasmocraft.block.evidence.util.uvChargeableBlock;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.StackReference;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.util.ClickType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 public class flashlight extends Item {
@@ -18,14 +26,22 @@ public class flashlight extends Item {
         super(settings);
     }
 
-    @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if(world.isClient()) return;
+    public NbtCompound getDefaultNbt(){
+        NbtCompound nbt = new NbtCompound();
+        nbt.putBoolean(nbtEnabled, false);
+        return nbt;
+    }
+
+    private void setDefaultNbt(ItemStack stack){
         NbtCompound nbt = stack.getNbt();
         if(nbt != null) return;
-        nbt = new NbtCompound();
-        nbt.putBoolean(nbtEnabled, false);
-        stack.setNbt(nbt);
+        stack.setNbt(getDefaultNbt());
+    }
+
+    public boolean isEnabled(ItemStack stack){
+        NbtCompound nbt = stack.getNbt();
+        assert nbt != null;
+        return nbt.getBoolean(nbtEnabled);
     }
 
     @Override
@@ -36,7 +52,6 @@ public class flashlight extends Item {
         NbtCompound nbt = stack.getNbt();
         assert nbt != null;
         nbt.putBoolean(nbtEnabled, !nbt.getBoolean(nbtEnabled));
-        user.sendMessage(Text.literal(nbt.toString()));
         stack.setNbt(nbt);
         return TypedActionResult.success(user.getStackInHand(hand));
     }
@@ -44,7 +59,10 @@ public class flashlight extends Item {
     @Override
     public boolean hasGlint(ItemStack stack) {
         NbtCompound nbt = stack.getNbt();
-        if(nbt == null) return false;
+        if(nbt == null){
+            setDefaultNbt(stack);
+            return false;
+        }
         return nbt.getBoolean(nbtEnabled);
     }
 }

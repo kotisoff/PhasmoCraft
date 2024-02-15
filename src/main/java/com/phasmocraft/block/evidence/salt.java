@@ -11,6 +11,9 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.IntProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -24,6 +27,8 @@ import net.minecraft.world.World;
 
 public class salt extends uvChargeableBlock {
     public static final BooleanProperty STEPPEDON = BooleanProperty.of("steppedon");
+    public static final DirectionProperty FACING = Properties.FACING;
+
     public salt(FabricBlockSettings settings){
         super(settings);
         setDefaultState(getDefaultState().with(STEPPEDON, false));
@@ -55,6 +60,7 @@ public class salt extends uvChargeableBlock {
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(STEPPEDON);
+        builder.add(FACING);
         super.appendProperties(builder);
     }
 }

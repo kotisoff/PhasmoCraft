@@ -24,15 +24,17 @@ public class emf_meter extends Item {
     private static final String nbtEmf = "phasmocraft.emf";
     public emf_meter(Settings settings) {
         super(settings);
-        NbtCompound nbt = new NbtCompound();
-        nbt.putBoolean(nbtEnabled, false);
-        nbt.putFloat(nbtEmf, 0);
-        getDefaultStack().setNbt(nbt);
     }
 
-    public void setEMF(PlayerEntity player, Hand hand, float emf) {
-        setEMF(player.getStackInHand(hand), emf);
+    private void setDefaultNbt(ItemStack stack){
+        NbtCompound nbt = stack.getNbt();
+        if(nbt != null) return;
+        nbt = new NbtCompound();
+        nbt.putBoolean(nbtEnabled, false);
+        nbt.putFloat(nbtEmf, 0);
+        stack.setNbt(nbt);
     }
+
     public void setEMF(ItemStack stack, float emf){
         if(!isEnabled(stack)) return;
         NbtCompound nbt = stack.getNbt();
@@ -44,18 +46,18 @@ public class emf_meter extends Item {
 
     public boolean isEnabled(ItemStack stack){
         NbtCompound nbt = stack.getNbt();
-        assert nbt != null;
+        if(nbt == null) return false;
         return nbt.getBoolean(nbtEnabled);
     }
     public void setEnabled(ItemStack stack, boolean state){
         NbtCompound nbt = stack.getNbt();
-        assert nbt != null;
+        if(nbt == null) return;
         nbt.putFloat(nbtEmf, (state) ? 0.2f : 0f);
         nbt.putBoolean(nbtEnabled, state);
     }
     public void toggleEnabled(ItemStack stack){
         NbtCompound nbt = stack.getNbt();
-        assert nbt != null;
+        if(nbt == null) return;
         boolean enabled = nbt.getBoolean(nbtEnabled);
         nbt.putFloat(nbtEmf, (!enabled) ? 0.2f : 0f);
         nbt.putBoolean(nbtEnabled, !enabled);
@@ -67,10 +69,6 @@ public class emf_meter extends Item {
             return stack.getNbt().getFloat("phasmocraft.emf");
         }
         return 0f;
-    }
-    public float getEMF(PlayerEntity player, Hand hand){
-        ItemStack stack = player.getStackInHand(hand);
-        return getEMF(stack);
     }
 
     public void playEmfSound(ServerWorld world, Vec3d pos, float emf){
@@ -88,21 +86,18 @@ public class emf_meter extends Item {
 
     @Override
     public boolean hasGlint(ItemStack stack) {
-//        return getEMF(stack) != 0f;
-        return false;
+        setDefaultNbt(stack);
+        return super.hasGlint(stack);
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if(stack.hasNbt()){
-            assert stack.getNbt() != null;
-            int EMF = (int)(stack.getNbt().getFloat("phasmocraft.emf")*5);
-            if(EMF == 0f){
-                tooltip.add(Text.of("EMF: Off"));
-            }
-            else{
-                tooltip.add(Text.of("EMF: "+EMF));
-            }
+        if(!stack.hasNbt()) return;
+        int EMF = (int) (getEMF(stack)*5);
+        if(EMF == 0f){
+            tooltip.add(Text.of("EMF: Off"));
+        } else{
+            tooltip.add(Text.of("EMF: "+EMF));
         }
     }
 }
