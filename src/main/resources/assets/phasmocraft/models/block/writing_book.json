@@ -1,14 +1,14 @@
 {
-	"credit": "сука",
-	"texture_size": [10, 4],
+	"credit": "Made by Murka124 with Blockbench",
+	"texture_size": [160, 64],
 	"textures": {
 		"0": "phasmocraft:block/writing_book",
 		"particle": "phasmocraft:block/writing_book"
 	},
 	"elements": [
 		{
-			"from": [0.25, 0, 2.25],
-			"to": [15.75, 1, 13.75],
+			"from": [0.25, 0.1, 2.25],
+			"to": [15.75, 1.1, 13.75],
 			"rotation": {"angle": 0, "axis": "y", "origin": [11.82287, 0.875, 9.65756]},
 			"faces": {
 				"north": {"uv": [0, 6, 2.4, 6.5], "texture": "#0"},
@@ -19,8 +19,8 @@
 			}
 		},
 		{
-			"from": [0, 0, 2],
-			"to": [16, 0, 14],
+			"from": [0, 0.1, 2],
+			"to": [16, 0.1, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [11.82287, 0.875, 9.65756]},
 			"faces": {
 				"up": {"uv": [3.2, 6, 0, 0], "rotation": 180, "texture": "#0"},
@@ -29,8 +29,8 @@
 		},
 		{
 			"name": "pen",
-			"from": [13.5, 1, 5.5],
-			"to": [14, 1.5, 12.5],
+			"from": [13.5, 1.1, 5.5],
+			"to": [14, 1.6, 12.5],
 			"rotation": {"angle": -22.5, "axis": "y", "origin": [11.82287, 0.875, 9.65756]},
 			"faces": {
 				"north": {"uv": [0, 6.5, 0.2, 7], "texture": "#0"},
