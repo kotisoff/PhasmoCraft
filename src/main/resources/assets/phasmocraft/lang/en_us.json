@@ -1,11 +1,12 @@
 {
   "block.phasmocraft.salt": "Salt",
-  "block.phasmocraft.uv_print_block": "UV Print Test Block",
+  "block.phasmocraft.uv_prints_block": "UV Print Test Block",
   "block.phasmocraft.writing_book": "Ghost Writing Book",
   "item.phasmocraft.emf_meter": "EMF-Meter",
   "item.phasmocraft.ghost_event": "Ghost Event",
   "item.phasmocraft.ghost_interact": "Ghost Interaction",
   "item.phasmocraft.uv_flashlight": "UV-Flashlight",
+  "item.phasmocraft.flashlight": "Strong Flashlight",
   "itemGroup.phasmocraft.evidence": "Phasmocraft Evidence",
   "itemGroup.phasmocraft.ghost": "Phasmocraft Ghost"
 }

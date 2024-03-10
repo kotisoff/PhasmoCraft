@@ -1,11 +1,12 @@
 {
   "block.phasmocraft.salt": "Соль",
-  "block.phasmocraft.uv_print_block": "Блок теста отпечатков",
+  "block.phasmocraft.uv_prints_block": "Блок теста отпечатков",
   "block.phasmocraft.writing_book": "Блокнот",
   "item.phasmocraft.emf_meter": "Детектор ЭМП",
   "item.phasmocraft.ghost_event": "Призрачный ивент",
   "item.phasmocraft.ghost_interact": "Призрачное взаимодействие",
-  "item.phasmocraft.uv_flashlight": "Ультрафиолетовый фонарик",
+  "item.phasmocraft.uv_flashlight": "Ультрафиолетовый фонарь",
+  "item.phasmocraft.flashlight": "Мощный фонарь",
   "itemGroup.phasmocraft.evidence": "Phasmocraft Улики",
   "itemGroup.phasmocraft.ghost": "Phasmocraft Призрак"
 }
