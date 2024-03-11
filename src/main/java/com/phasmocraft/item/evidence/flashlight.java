@@ -20,7 +20,7 @@ import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 public class flashlight extends Item {
-    private static final String nbtEnabled = "phasmocraft.enabledSUKA";
+    private static final String nbtEnabled = "phasmocraft.enabled";
 
     public flashlight(Item.Settings settings){
         super(settings);
@@ -28,7 +28,7 @@ public class flashlight extends Item {
 
     public NbtCompound getDefaultNbt(){
         NbtCompound nbt = new NbtCompound();
-        nbt.putFloat(nbtEnabled, 0.0f);
+        nbt.putBoolean(nbtEnabled, false);
         return nbt;
     }
 
@@ -38,10 +38,10 @@ public class flashlight extends Item {
         stack.setNbt(getDefaultNbt());
     }
 
-    public float isEnabled(ItemStack stack){
+    public boolean isEnabled(ItemStack stack){
         NbtCompound nbt = stack.getNbt();
         assert nbt != null;
-        return nbt.getFloat(nbtEnabled);
+        return nbt.getBoolean(nbtEnabled);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class flashlight extends Item {
         ItemStack stack = user.getStackInHand(hand);
         NbtCompound nbt = stack.getNbt();
         assert nbt != null;
-        nbt.putFloat(nbtEnabled, 1.0f - nbt.getFloat(nbtEnabled));
+        nbt.putBoolean(nbtEnabled, !nbt.getBoolean(nbtEnabled));
         stack.setNbt(nbt);
         return TypedActionResult.success(user.getStackInHand(hand));
     }
@@ -63,6 +63,6 @@ public class flashlight extends Item {
             setDefaultNbt(stack);
             return false;
         }
-        return nbt.getFloat(nbtEnabled)>0?true:false;
+        return nbt.getBoolean(nbtEnabled);
     }
 }

@@ -17,14 +17,14 @@ import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 public class uv_flashlight extends flashlight {
-    private static final String nbtEnabled = "phasmocraft.enabledSUKA";
+    private static final String nbtEnabled = "phasmocraft.enabled";
 
     public uv_flashlight(Settings settings){
         super(settings);
     }
 
     private void raycastUV(World world, PlayerEntity player, ItemStack stack){
-        if(1.0f - isEnabled(stack)>0) return;
+        if(!isEnabled(stack)) return;
         BlockHitResult hit = raycast(world, player, RaycastContext.FluidHandling.NONE);
         BlockPos pos = hit.getBlockPos();
         BlockState state = world.getBlockState(pos);

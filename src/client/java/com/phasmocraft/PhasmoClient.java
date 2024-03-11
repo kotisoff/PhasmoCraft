@@ -23,7 +23,16 @@ public class PhasmoClient implements ClientModInitializer {
 				(stack, world, entity, seed) -> {
 			if(stack.hasNbt()){
 				assert stack.getNbt() != null;
-				return stack.getNbt().getFloat("phasmocraft.enabledSUKA");
+				return stack.getNbt().getBoolean("phasmocraft.enabled") ? 1f : 0f;
+			}
+			return 0f;
+		});
+
+		ModelPredicateProviderRegistry.register(ItemsEvidence.UV_FLASHLIGHT, new Identifier(Phasmo.MODID, "enabled"),
+				(stack, world, entity, seed) -> {
+			if(stack.hasNbt()){
+				assert stack.getNbt() != null;
+				return stack.getNbt().getBoolean("phasmocraft.enabled") ? 1f : 0f;
 			}
 			return 0f;
 		});

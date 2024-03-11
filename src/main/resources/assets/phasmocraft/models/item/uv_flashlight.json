@@ -261,7 +261,7 @@
 	"overrides": [
 		{
 			"predicate": {
-				"phasmocraft:enabledSUKA": 1.0
+				"phasmocraft:enabled": 1
 			},
 			"model": "phasmocraft:item/uv_flashlight_on"
 		}
