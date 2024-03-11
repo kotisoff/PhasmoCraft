@@ -1,8 +1,6 @@
 package com.phasmocraft.item.evidence;
 
-import com.phasmocraft.events.ghostEvent;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

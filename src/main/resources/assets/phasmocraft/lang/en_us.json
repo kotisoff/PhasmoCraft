@@ -6,7 +6,8 @@
   "item.phasmocraft.ghost_event": "Ghost Event",
   "item.phasmocraft.ghost_interact": "Ghost Interaction",
   "item.phasmocraft.uv_flashlight": "UV-Flashlight",
-  "item.phasmocraft.flashlight": "Strong Flashlight",
+  "item.phasmocraft.strong_flashlight": "Strong Flashlight",
+  "item.phasmocraft.flashlight": "Flashlight",
   "itemGroup.phasmocraft.evidence": "Phasmocraft Evidence",
   "itemGroup.phasmocraft.ghost": "Phasmocraft Ghost"
 }

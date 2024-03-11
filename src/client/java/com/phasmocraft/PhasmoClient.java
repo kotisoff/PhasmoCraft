@@ -19,7 +19,16 @@ public class PhasmoClient implements ClientModInitializer {
 			return 0f;
 		});
 
+		
 		ModelPredicateProviderRegistry.register(ItemsEvidence.FLASHLIGHT, new Identifier(Phasmo.MODID, "enabled"),
+				(stack, world, entity, seed) -> {
+			if(stack.hasNbt()){
+				assert stack.getNbt() != null;
+				return stack.getNbt().getBoolean("phasmocraft.enabled") ? 1f : 0f;
+			}
+			return 0f;
+		});
+		ModelPredicateProviderRegistry.register(ItemsEvidence.STRONG_FLASHLIGHT, new Identifier(Phasmo.MODID, "enabled"),
 				(stack, world, entity, seed) -> {
 			if(stack.hasNbt()){
 				assert stack.getNbt() != null;

@@ -6,7 +6,8 @@
   "item.phasmocraft.ghost_event": "Призрачный ивент",
   "item.phasmocraft.ghost_interact": "Призрачное взаимодействие",
   "item.phasmocraft.uv_flashlight": "Ультрафиолетовый фонарь",
-  "item.phasmocraft.flashlight": "Мощный фонарь",
+  "item.phasmocraft.strong_flashlight": "Мощный фонарь",
+  "item.phasmocraft.flashlight": "Фонарь",
   "itemGroup.phasmocraft.evidence": "Phasmocraft Улики",
   "itemGroup.phasmocraft.ghost": "Phasmocraft Призрак"
 }

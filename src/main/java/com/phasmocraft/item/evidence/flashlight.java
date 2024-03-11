@@ -63,6 +63,6 @@ public class flashlight extends Item {
             setDefaultNbt(stack);
             return false;
         }
-        return nbt.getBoolean(nbtEnabled);
+        return false;
     }
 }
