@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "phasmocraft.enabled=false": {
+      "model": "phasmocraft:block/uv_flashlight"
+    },
+	"phasmocraft.enabled=true": {
+      "model": "phasmocraft:block/uv_flashlight_on"
+    }
+  }, 
+  "not_working_delete_me_plz": true
+}
