@@ -1,8 +1,8 @@
 {
-	"credit": "Made with Blockbench",
+	"credit": "Made by Murka124 with Blockbench",
 	"textures": {
-		"0": "phasmocraft:block/salt",
-		"particle": "phasmocraft:block/salt"
+		"0": "phasmocraft:block/salt/salt_charge1",
+		"particle": "phasmocraft:block/salt/salt_charge1"
 	},
 	"elements": [
 		{

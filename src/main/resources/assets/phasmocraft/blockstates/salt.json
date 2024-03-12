@@ -3,11 +3,17 @@
     "steppedon=false": {
       "model": "phasmocraft:block/salt"
     },
-    "uv_shown=false,steppedon=true": {
+    "steppedon=true,uv_level=0": {
       "model": "phasmocraft:block/salt_step"
     },
-    "uv_shown=true,steppedon=true": {
-      "model": "phasmocraft:block/salt_step_uv"
+    "steppedon=true,uv_level=1": {
+      "model": "phasmocraft:block/salt_step_uv1"
+    },
+    "steppedon=true,uv_level=2": {
+      "model": "phasmocraft:block/salt_step_uv2"
+    },
+    "steppedon=true,uv_level=3": {
+      "model": "phasmocraft:block/salt_step_uv3"
     }
   }
 }

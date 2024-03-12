@@ -54,7 +54,7 @@ public class salt extends uvChargeableBlock {
     }
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.cuboid(0f,0f,0f,1f,0f,1f);
+        return VoxelShapes.cuboid(0f,0f,0f,0.1f,0f,0.1f);
     }
 
     @Override

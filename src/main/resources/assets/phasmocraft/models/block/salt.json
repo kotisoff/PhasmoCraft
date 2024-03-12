@@ -1,7 +1,7 @@
 {
 	"textures": {
-		"0": "phasmocraft:block/salt",
-		"particle": "phasmocraft:block/salt"
+		"0": "phasmocraft:block/salt/salt",
+		"particle": "phasmocraft:block/salt/salt"
 	},
 	"elements": [
 		{

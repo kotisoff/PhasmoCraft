@@ -20,12 +20,12 @@ public class writing_book extends Block {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.cuboid(0.25f, 0f, 0.15f, 0.75f, 0.1f, 0.85f);
+        return VoxelShapes.cuboid(0f, 0f, 0.125f, 1f, 0.09f, 0.875f);
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.cuboid(0.25f, 0f, 0.15f, 0.75f, 0.1f, 0.85f);
+        return VoxelShapes.cuboid(0.0f, 0f, 0.0f, 0.0f, 0.0f, 0.0f);
     }
 
     @Override

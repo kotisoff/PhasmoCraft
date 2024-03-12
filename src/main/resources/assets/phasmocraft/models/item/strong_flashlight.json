@@ -212,6 +212,9 @@
 			}
 		}
 	],
+	"overrides": [
+		{"predicate": {"phasmocraft:enabled": 1}, "model": "phasmocraft:item/strong_flashlight_on"}
+	],
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [67, 0, 0],
@@ -231,8 +234,8 @@
 			"translation": [0, 4.25, 0]
 		},
 		"gui": {
-			"rotation": [90, -35, 47],
-			"translation": [-6, 3.5, 0],
+			"rotation": [90, -35, 45],
+			"translation": [-5.75, 3.5, 0],
 			"scale": [1.4, 1.4, 1.4]
 		},
 		"head": {
@@ -261,14 +264,6 @@
 			"origin": [8.0125, 1.15, 13.1375],
 			"color": 0,
 			"children": []
-		}
-	],
-	"overrides": [
-		{
-			"predicate": {
-				"phasmocraft:enabled": 1
-			},
-			"model": "phasmocraft:item/strong_flashlight_on"
 		}
 	]
 }

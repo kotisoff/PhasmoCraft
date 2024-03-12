@@ -20,9 +20,9 @@ public class uv_flashlight extends flashlight {
         BlockHitResult hit = raycast(world, player, RaycastContext.FluidHandling.NONE);
         BlockPos pos = hit.getBlockPos();
         BlockState state = world.getBlockState(pos);
-        if(state.contains(uvChargeableBlock.UVSHOWN)){
+        if(state.contains(uvChargeableBlock.UV_LEVEL)){
             uvChargeableBlock block = (uvChargeableBlock) state.getBlock();
-            if(block.canBeShown(world, pos, state)) uvChargeableBlock.setShown(world, pos, state, true);
+            if(block.canBeShown(world, pos, state)) uvChargeableBlock.charge(world, pos, state);
         }
     }
 
