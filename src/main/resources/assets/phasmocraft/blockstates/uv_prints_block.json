@@ -1,9 +1,15 @@
 {
   "variants": {
-    "uv_shown=false": {
+    "uv_charge=0": {
       "model": "phasmocraft:block/uv_prints_block"
     },
-    "uv_shown=true": {
+    "uv_charge=1": {
+      "model": "phasmocraft:block/uv_prints_block_shown"
+    },
+    "uv_charge=2": {
+      "model": "phasmocraft:block/uv_prints_block_shown"
+    },
+    "uv_charge=3": {
       "model": "phasmocraft:block/uv_prints_block_shown"
     }
   }
