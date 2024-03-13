@@ -1,10 +1,19 @@
 package com.phasmocraft.block.evidence;
 
+import org.jetbrains.annotations.Nullable;
+
 import com.phasmocraft.block.evidence.util.uvChargeableBlock;
+import com.phasmocraft.registry.BlocksEvidence;
+
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundCategory;
@@ -25,7 +34,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class salt extends uvChargeableBlock {
+public class salt extends BlockWithEntity {
     public static final BooleanProperty STEPPEDON = BooleanProperty.of("steppedon");
     public static final DirectionProperty FACING = Properties.FACING;
 
@@ -44,11 +53,6 @@ public class salt extends uvChargeableBlock {
     }
 
     @Override
-    public boolean canBeShown(World world, BlockPos pos, BlockState state) {
-        return state.get(STEPPEDON);
-    }
-
-    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return VoxelShapes.cuboid(0.2f, 0f, 0.2f, 0.8f, 0.1f, 0.8f);
     }
@@ -62,5 +66,17 @@ public class salt extends uvChargeableBlock {
         builder.add(STEPPEDON);
         builder.add(FACING);
         super.appendProperties(builder);
+    }
+
+    @Override
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new SaltBlockEntity(pos, state);
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return validateTicker(type, BlocksEvidence.SALT_BLOCK_ENTITY,
+                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }
