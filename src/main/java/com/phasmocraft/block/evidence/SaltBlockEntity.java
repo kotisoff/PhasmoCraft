@@ -3,9 +3,11 @@ package com.phasmocraft.block.evidence;
 import com.phasmocraft.registry.BlocksEvidence;
 import com.phasmocraft.block.evidence.util.uvChargeable;
 import com.phasmocraft.block.evidence.util.uvChargeableBlock;
+import com.phasmocraft.block.test.uvPrintsBlockEntity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -20,7 +22,7 @@ public class SaltBlockEntity extends uvChargeable {
     
     public void tick(World world, BlockPos pos, BlockState state, SaltBlockEntity blockEntity) {
         tickCount++;
-        uvChargeable.onTick(world, pos, state, blockEntity, tickCount);
+        uvChargeable.onTick(world, pos, state, tickCount);
     }
 
 

@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "phasmocraft:block/uv_prints_block"
+    "all": "phasmocraft:block/uv_prints/uv_prints_block"
   }
 }

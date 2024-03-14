@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 public class uvChargeableBlock extends BlockWithEntity {
     public static IntProperty UV_LEVEL = IntProperty.of("uv_level", 0, 3);
     public static IntProperty UV_CHARGE = IntProperty.of("uv_charge", 0, 20);
-    public static BooleanProperty STEPPEDON = BooleanProperty.of("steppedon");
 
     public static int uv_charge = 0;
     public static int uv_level = 0;
@@ -56,7 +55,7 @@ public class uvChargeableBlock extends BlockWithEntity {
 
     public static void charge(World world, BlockPos pos, BlockState state){
         if (world.isClient()) return;
-        if (!state.get(STEPPEDON) || !canBeShown(world, pos, state)) return;
+        if (!canBeShown(world, pos, state)) return;
         uv_charge = state.get(UV_CHARGE);
         if (uv_charge < 20) {
             uv_charge++;

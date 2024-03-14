@@ -8,7 +8,9 @@ import com.phasmocraft.registry.BlocksEvidence;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -18,6 +20,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -25,11 +28,12 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class salt extends uvChargeableBlock {
+public class SaltBlock extends uvChargeableBlock {
+
     public static final BooleanProperty STEPPEDON = BooleanProperty.of("steppedon");
     public static final DirectionProperty FACING = Properties.FACING;
 
-    public salt(FabricBlockSettings settings){
+    public SaltBlock(FabricBlockSettings settings){
         super(settings);
         setDefaultState(getDefaultState().with(STEPPEDON, false));
     }
@@ -70,5 +74,4 @@ public class salt extends uvChargeableBlock {
         return checkType(type, BlocksEvidence.SALT_BLOCK_ENTITY,
                 (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1, blockEntity));
     } 
-
 }

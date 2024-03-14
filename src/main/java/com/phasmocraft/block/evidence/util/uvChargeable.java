@@ -1,6 +1,7 @@
 package com.phasmocraft.block.evidence.util;
 
 import com.phasmocraft.block.evidence.SaltBlockEntity;
+import com.phasmocraft.block.test.uvPrintsBlockEntity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -19,7 +20,7 @@ public class uvChargeable extends BlockEntity {
         //TODO Auto-generated constructor stub
     }
 
-    public static void onTick(World world, BlockPos pos, BlockState state, SaltBlockEntity blockEntity, int tickCount) {
+    public static void onTick(World world, BlockPos pos, BlockState state, int tickCount) {
         if (world.isClient()) return;
         if (tickCount%3 == 0) {
             int uv_charge = state.get(UV_CHARGE);
@@ -28,7 +29,6 @@ public class uvChargeable extends BlockEntity {
                 world.setBlockState(pos, state.with(UV_LEVEL, Math.min(uv_charge,3)).with(UV_CHARGE, uv_charge));
             }
         }
-
     }
 
 }
