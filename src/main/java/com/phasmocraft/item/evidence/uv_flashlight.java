@@ -1,5 +1,6 @@
 package com.phasmocraft.item.evidence;
 
+import com.phasmocraft.Phasmo;
 import com.phasmocraft.block.evidence.util.uvChargeableBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -21,6 +22,7 @@ public class uv_flashlight extends flashlight {
         BlockPos pos = hit.getBlockPos();
         BlockState state = world.getBlockState(pos);
         if(state.contains(uvChargeableBlock.UV_LEVEL)){
+            //Phasmo.LOGGER.info("ПОЙМАН!");
             uvChargeableBlock block = (uvChargeableBlock) state.getBlock();
             if(block.canBeShown(world, pos, state)) uvChargeableBlock.charge(world, pos, state);
         }
