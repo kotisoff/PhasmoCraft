@@ -4,13 +4,13 @@
       "model": "phasmocraft:block/uv_prints_block"
     },
     "uv_level=1": {
-      "model": "phasmocraft:block/uv_prints_block_shown"
+      "model": "phasmocraft:block/uv_prints_block1"
     },
     "uv_level=2": {
-      "model": "phasmocraft:block/uv_prints_block_shown"
+      "model": "phasmocraft:block/uv_prints_block2"
     },
     "uv_level=3": {
-      "model": "phasmocraft:block/uv_prints_block_shown"
+      "model": "phasmocraft:block/uv_prints_block3"
     }
   }
 }

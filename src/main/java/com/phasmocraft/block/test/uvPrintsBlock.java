@@ -26,12 +26,6 @@ public class uvPrintsBlock extends uvChargeableBlock {
 
     public uvPrintsBlock(Settings settings) {
         super(settings);
-        //TODO Auto-generated constructor stub
-    }
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        super.appendProperties(builder);
     }
 
     @Override
@@ -42,7 +36,7 @@ public class uvPrintsBlock extends uvChargeableBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, BlocksEvidence.SALT_BLOCK_ENTITY,
+        return checkType(type, BlocksEvidence.UV_PRINTS_BLOCK_ENTITY,
                 (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1, blockEntity));
     } 
 }
